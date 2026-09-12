@@ -1,7 +1,6 @@
 #include<iostream>
-#include<vector>
-#include<ctime>
 using namespace std;
+
 int maxO2(int a[], int size){
     int max = a[0];
     for (int i =0;i < size;i++){
@@ -15,10 +14,14 @@ int maxO2(int a[], int size){
     }
     return max;
 }
+
 int main(){
     int n;
-    if (!(cin >> n) || n <= 0) return 0;    
+    cin >> n;
+
     int a[n];
+    for(int i = 0; i < n; i++) cin >> a[i];
+    
     int h = maxO2(a,n);
-    cout<< h<<endl;
+    cout << h << endl;
 }
