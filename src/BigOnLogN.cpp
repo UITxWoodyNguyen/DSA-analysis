@@ -29,8 +29,8 @@ int maxSubArrayHelp(int a[],int left,int right){
     int max_cross = maxCrossingSum(a, left, mid, right);
     return max({max_left, max_right, max_cross});
 }
-int maxSubArray(int a[]){
-    return maxSubArrayHelp(a,0,a.size()-1);
+int maxSubArray(int a[],int n){
+    return maxSubArrayHelp(a,0,n-1);
 }
 
 int main(){
@@ -40,6 +40,6 @@ int main(){
     for (int i=0;i < n;i++){
         cin >> a[i];
     }
-    int h = maxSubArray(a);
+    int h = maxSubArray(a,n);
     cout <<h<<endl;
 }
