@@ -16,14 +16,9 @@ int maxO2(int a[], int size){
     return max;
 }
 int main(){
-    clock_t start = clock();
     int n;
     if (!(cin >> n) || n <= 0) return 0;    
     int a[n];
     int h = maxO2(a,n);
     cout<< h<<endl;
-    clock_t end = clock();
-    double time = static_cast<double>(end - start);
-    if (time > 300) cout <<"TLN"<<endl;
-    std::cout << "CPU time: " << time << " s\n";
 }
