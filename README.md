@@ -23,7 +23,7 @@ cd DSA-analysis
 
 ## Quick Start
 
-Compile all algorithms:
+Compile all algorithms (outputs to `exe/` folder):
 
 ```bash
 g++ src/max_subsequence_On3.cpp -o exe/on3.exe -O2
@@ -74,20 +74,60 @@ Results are saved in `testcase/output/<BigO>/` with format:
 Runtime: <ms>
 ```
 
-Timeout is 60 seconds. TLE cases show:
+Timeout is 60 seconds. Special cases:
+- **TLE**: `Time Limit Exceeded (TLE)` + `Runtime: 60000.00 ms`
+- **Stack Overflow**: `Stack Overflow` + runtime when process crashes
+
+## Runtime Measurement in C++
+
+All algorithms use `<chrono>` library for high-resolution timing:
+
+```cpp
+#include <chrono>
+using namespace std::chrono;
+
+auto start = high_resolution_clock::now();
+// ... algorithm code ...
+auto end = high_resolution_clock::now();
+auto duration = duration_cast<milliseconds>(end - start).count();
+cout << "Runtime: " << duration << " ms\n";
 ```
-Time Limit Exceeded (TLE)
-Runtime: 60000.00 ms
-```
+
+Key points:
+- **`high_resolution_clock`** — Best available clock (typically nanosecond precision)
+- **`duration_cast<milliseconds>`** — Converts to milliseconds
+- **Measures wall-clock time** — Includes all CPU work, memory access, I/O overhead
+- **Single-threaded** — All algorithms run sequentially in one thread
+
+### Measurement Approaches Used
+
+| File | Approach |
+|------|----------|
+| `maxSubArr.cpp` | In-class timing: `high_resolution_clock::now()` before/after each method |
+| `testcase/run_tests.py` | External timing: Python `time.perf_counter()` around subprocess |
+| `solution.cpp` | No timing — pure algorithm output |
+
+### Stack Overflow Detection
+
+The Python runner detects crashes via:
+1. Non-zero exit code from subprocess
+2. Empty stdout output
+3. Reports as `Stack Overflow` in output files
 
 ## Algorithm Complexity Comparison
 
 | Algorithm | Time Complexity | Space Complexity | Source File | Binary |
 |-----------|----------------|------------------|-------------|--------|
-| Brute Force (3 loops) | O(n³) | O(1) | `max_subsequence_On3.cpp` | `on3.exe` |
-| Optimized Brute Force | O(n²) | O(1) | `BigO2.cpp` | `on2.exe` |
-| Divide & Conquer | O(n log n) | O(log n) | `BigOnLogN.cpp` | `onlogn.exe` |
-| Kadane's Algorithm | O(n) | O(1) | `On-kadane.cpp` | `kadane.exe` |
+| Brute Force (3 loops) | O(n³) | O(1) | `max_subsequence_On3.cpp` | `exe/on3.exe` |
+| Optimized Brute Force | O(n²) | O(1) | `BigO2.cpp` | `exe/on2.exe` |
+| Divide & Conquer | O(n log n) | O(log n) | `BigOnLogN.cpp` | `exe/onlogn.exe` |
+| Kadane's Algorithm | O(n) | O(1) | `On-kadane.cpp` | `exe/kadane.exe` |
+
+## Implementation Notes
+
+- All algorithms use **dynamic allocation** (`new int[n]`) instead of VLAs to avoid stack overflow on large inputs (1M+ elements)
+- Test runner detects non-zero exit codes and empty output as **Stack Overflow**
+- Test binaries are compiled to and run from `exe/` folder
 
 ## Testing
 
@@ -108,6 +148,25 @@ echo "3 -5 -2 -3" | exe/kadane.exe
 # Output: -2
 ```
 
+## Additional Files
+
+| File | Purpose |
+|------|---------|
+| `maxSubArr.cpp` | Single class with all 4 algorithms + internal runtime measurement |
+| `solution.cpp` | Combined 4 functions, no timing, reads stdin, outputs 4 results |
+| `result-comparing/resultComparing.cpp` | Parses all `.out` files, compares results & runtimes |
+
+## Test Results Summary (60s timeout)
+
+| Input Size | O(n³) | O(n²) | O(n log n) | O(n) |
+|------------|-------|-------|------------|------|
+| 100 | ✓ | ✓ | ✓ | ✓ |
+| 1,000 | ✓ | ✓ | ✓ | ✓ |
+| 10,000 | TLE | ✓ | ✓ | ✓ |
+| 100,000 | TLE | ✓ | ✓ | ✓ |
+| 1,000,000 | TLE | TLE | ✓ | ✓ |
+| 10,000,000 | TLE | TLE | TLE | ✓ |
+
 ## Project Structure
 
 ```
@@ -117,7 +176,7 @@ DSA-analysis/
 │   ├── BigO2.cpp                 # O(n²) optimized
 │   ├── BigOnLogN.cpp             # O(n log n) divide & conquer
 │   └── On-kadane.cpp             # O(n) Kadane's algorithm
-├── exe/                          # Compiled binaries
+├── exe/                          # Compiled binaries (gitignored)
 │   ├── on3.exe
 │   ├── on2.exe
 │   ├── onlogn.exe
@@ -126,12 +185,21 @@ DSA-analysis/
 │   ├── testGenerate.cpp          # Test case generator
 │   ├── testGenerate.exe          # Compiled generator (Windows)
 │   ├── run_tests.py              # Test runner script
-│   ├── input/                    # Generated test files
-│   └── output/                   # Test results
+│   ├── input/                    # Generated test files (gitignored)
+│   └── output/                   # Test results (gitignored)
 │       ├── BigOn3/
 │       ├── BigO2/
 │       ├── BigOnLogN/
 │       └── BigOn/
+├── result-comparing/
+│   ├── resultComparing.cpp       # Comparison tool
+│   ├── resultComparing.exe       # Compiled (gitignored)
+│   └── result.txt                # Output comparison (gitignored)
+├── maxSubArr.cpp                 # Combined class with timing
+├── maxSubArr.exe                 # Compiled (gitignored)
+├── solution.cpp                  # Combined functions, no timing
+├── solution.exe                  # Compiled (gitignored)
+├── .gitignore
 └── README.md
 ```
 
