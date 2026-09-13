@@ -1,0 +1,121 @@
+        Size         O(n^3)         O(n^2)        O(n log n)        O(n)
+========================================================================
+         100          72.61          78.34          74.75          75.65
+        1000          81.62          10.14          12.18           9.55
+       10000            TLE          40.93          20.07          15.41
+      100000            TLE        2732.71          99.02          94.32
+     1000000            TLE            TLE         778.39         903.65
+    10000000            TLE            TLE        7562.12        8823.46
+      150000            TLE        8739.02         119.02         133.26
+      200000            TLE       15544.76         149.86         183.44
+      300000            TLE       35284.63         218.92         299.87
+      500000            TLE            TLE         385.61         436.49
+      600000            TLE            TLE         457.64         531.74
+      700000            TLE            TLE         532.20         619.90
+      800000            TLE            TLE         599.69         712.53
+      900000            TLE            TLE         676.54         872.41
+
+
+=== Detailed Comparison ===
+
+--- N = 100 ---
+      O(n^3): Result = 6762, Runtime = 72.61 ms
+      O(n^2): Result = 6762, Runtime = 78.34 ms
+  O(n log n): Result = 6762, Runtime = 74.75 ms
+        O(n): Result = 6762, Runtime = 75.65 ms
+
+--- N = 1000 ---
+      O(n^3): Result = 37282, Runtime = 81.62 ms
+      O(n^2): Result = 37282, Runtime = 10.14 ms
+  O(n log n): Result = 37282, Runtime = 12.18 ms
+        O(n): Result = 37282, Runtime = 9.55 ms
+
+--- N = 10000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): Result = 62029, Runtime = 40.93 ms
+  O(n log n): Result = 62029, Runtime = 20.07 ms
+        O(n): Result = 62029, Runtime = 15.41 ms
+
+--- N = 100000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): Result = 130716, Runtime = 2732.71 ms
+  O(n log n): Result = 130716, Runtime = 99.02 ms
+        O(n): Result = 130716, Runtime = 94.32 ms
+
+--- N = 1000000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 296839, Runtime = 778.39 ms
+        O(n): Result = 296839, Runtime = 903.65 ms
+
+--- N = 10000000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 3151868, Runtime = 7562.12 ms
+        O(n): Result = 3151868, Runtime = 8823.46 ms
+
+--- N = 150000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): Result = 249246, Runtime = 8739.02 ms
+  O(n log n): Result = 249246, Runtime = 119.02 ms
+        O(n): Result = 249246, Runtime = 133.26 ms
+
+--- N = 200000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): Result = 561259, Runtime = 15544.76 ms
+  O(n log n): Result = 561259, Runtime = 149.86 ms
+        O(n): Result = 561259, Runtime = 183.44 ms
+
+--- N = 300000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): Result = 596224, Runtime = 35284.63 ms
+  O(n log n): Result = 596224, Runtime = 218.92 ms
+        O(n): Result = 596224, Runtime = 299.87 ms
+
+--- N = 500000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 341805, Runtime = 385.61 ms
+        O(n): Result = 341805, Runtime = 436.49 ms
+
+--- N = 600000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 427027, Runtime = 457.64 ms
+        O(n): Result = 427027, Runtime = 531.74 ms
+
+--- N = 700000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 376672, Runtime = 532.20 ms
+        O(n): Result = 376672, Runtime = 619.90 ms
+
+--- N = 800000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 805195, Runtime = 599.69 ms
+        O(n): Result = 805195, Runtime = 712.53 ms
+
+--- N = 900000 ---
+      O(n^3): TLE (60000 ms)
+      O(n^2): TLE (60000 ms)
+  O(n log n): Result = 299782, Runtime = 676.54 ms
+        O(n): Result = 299782, Runtime = 872.41 ms
+
+
+=== Result Values Comparison ===
+
+N =        100: All match: 6762
+N =       1000: All match: 37282
+N =      10000: All match: 62029
+N =     100000: All match: 130716
+N =    1000000: All match: 296839
+N =   10000000: All match: 3151868
+N =     150000: All match: 249246
+N =     200000: All match: 561259
+N =     300000: All match: 596224
+N =     500000: All match: 341805
+N =     600000: All match: 427027
+N =     700000: All match: 376672
+N =     800000: All match: 805195
+N =     900000: All match: 299782

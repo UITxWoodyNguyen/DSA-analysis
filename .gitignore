@@ -4,3 +4,12 @@
 *.opencode
 
 ~
+
+# Compiled binaries
+*.exe
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
