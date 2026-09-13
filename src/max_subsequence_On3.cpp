@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    int n; cin >> n;
+    int n;
+    cin >> n;
     int a[n];
     int globalSum = 0;
     for (int i = 0; i < n; i++)
@@ -23,14 +24,10 @@ int main()
                 localSum += a[k];
             }
 
-            if (globalSum < localSum) globalSum = localSum; 
+            if (globalSum < localSum)
+                globalSum = localSum;
         }
     }
 
     cout << globalSum;
-
 }
-
-
-
-// -2 11 -4 13 -5 -2 
