@@ -1,19 +1,18 @@
-#include <bits/stdc++.h>
-#include <ctime>
-
+#include <iostream>
+#include <climits>
 using namespace std;
 
 int main()
 {
     int n;
     cin >> n;
-    int a[n];
-    int globalSum = 0;
+    int* a = new int[n];
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
 
+    int globalSum = INT_MIN;
     for (int i = 0; i < n; i++)
     {
         for (int j = i; j < n; j++)
@@ -30,4 +29,5 @@ int main()
     }
 
     cout << globalSum;
+    delete[] a;
 }

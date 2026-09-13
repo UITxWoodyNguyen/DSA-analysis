@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 
 int maxO2(int a[], int size)
@@ -24,10 +25,11 @@ int main()
     int n;
     cin >> n;
 
-    int a[n];
+    int* a = new int[n];
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
     int h = maxO2(a, n);
     cout << h << endl;
+    delete[] a;
 }
