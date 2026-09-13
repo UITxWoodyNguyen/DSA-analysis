@@ -1,106 +1,106 @@
         Size         O(n^3)         O(n^2)        O(n log n)        O(n)
 ========================================================================
-         100          72.61          78.34          74.75          75.65
-        1000          81.62          10.14          12.18           9.55
-       10000            TLE          40.93          20.07          15.41
-      100000            TLE        2732.71          99.02          94.32
-     1000000            TLE            TLE         778.39         903.65
-    10000000            TLE            TLE        7562.12        8823.46
-      150000            TLE        8739.02         119.02         133.26
-      200000            TLE       15544.76         149.86         183.44
-      300000            TLE       35284.63         218.92         299.87
-      500000            TLE            TLE         385.61         436.49
-      600000            TLE            TLE         457.64         531.74
-      700000            TLE            TLE         532.20         619.90
-      800000            TLE            TLE         599.69         712.53
-      900000            TLE            TLE         676.54         872.41
+         100          72.61          53.07          49.84          89.40
+        1000          81.62           9.03           8.96          11.20
+       10000            TLE          41.33          16.85          20.13
+      100000            TLE        3008.76          82.89         121.83
+     1000000            TLE            TLE         728.62         898.57
+    10000000            TLE            TLE        7575.39        8119.03
+      150000            TLE        6709.89         121.18         114.81
+      200000            TLE       11948.62         158.55         152.74
+      300000            TLE       27392.67         237.99         229.99
+      500000            TLE            TLE         371.43         422.43
+      600000            TLE            TLE         442.80         450.13
+      700000            TLE            TLE         622.99         510.62
+      800000            TLE            TLE         658.87         601.33
+      900000            TLE            TLE         811.61         670.66
 
 
 === Detailed Comparison ===
 
 --- N = 100 ---
       O(n^3): Result = 6762, Runtime = 72.61 ms
-      O(n^2): Result = 6762, Runtime = 78.34 ms
-  O(n log n): Result = 6762, Runtime = 74.75 ms
-        O(n): Result = 6762, Runtime = 75.65 ms
+      O(n^2): Result = 6762, Runtime = 53.07 ms
+  O(n log n): Result = 6762, Runtime = 49.84 ms
+        O(n): Result = 6762, Runtime = 89.40 ms
 
 --- N = 1000 ---
       O(n^3): Result = 37282, Runtime = 81.62 ms
-      O(n^2): Result = 37282, Runtime = 10.14 ms
-  O(n log n): Result = 37282, Runtime = 12.18 ms
-        O(n): Result = 37282, Runtime = 9.55 ms
+      O(n^2): Result = 37282, Runtime = 9.03 ms
+  O(n log n): Result = 37282, Runtime = 8.96 ms
+        O(n): Result = 37282, Runtime = 11.20 ms
 
 --- N = 10000 ---
       O(n^3): TLE (60000 ms)
-      O(n^2): Result = 62029, Runtime = 40.93 ms
-  O(n log n): Result = 62029, Runtime = 20.07 ms
-        O(n): Result = 62029, Runtime = 15.41 ms
+      O(n^2): Result = 62029, Runtime = 41.33 ms
+  O(n log n): Result = 62029, Runtime = 16.85 ms
+        O(n): Result = 62029, Runtime = 20.13 ms
 
 --- N = 100000 ---
       O(n^3): TLE (60000 ms)
-      O(n^2): Result = 130716, Runtime = 2732.71 ms
-  O(n log n): Result = 130716, Runtime = 99.02 ms
-        O(n): Result = 130716, Runtime = 94.32 ms
+      O(n^2): Result = 130716, Runtime = 3008.76 ms
+  O(n log n): Result = 130716, Runtime = 82.89 ms
+        O(n): Result = 130716, Runtime = 121.83 ms
 
 --- N = 1000000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 296839, Runtime = 778.39 ms
-        O(n): Result = 296839, Runtime = 903.65 ms
+  O(n log n): Result = 296839, Runtime = 728.62 ms
+        O(n): Result = 296839, Runtime = 898.57 ms
 
 --- N = 10000000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 3151868, Runtime = 7562.12 ms
-        O(n): Result = 3151868, Runtime = 8823.46 ms
+  O(n log n): Result = 3151868, Runtime = 7575.39 ms
+        O(n): Result = 3151868, Runtime = 8119.03 ms
 
 --- N = 150000 ---
       O(n^3): TLE (60000 ms)
-      O(n^2): Result = 249246, Runtime = 8739.02 ms
-  O(n log n): Result = 249246, Runtime = 119.02 ms
-        O(n): Result = 249246, Runtime = 133.26 ms
+      O(n^2): Result = 249246, Runtime = 6709.89 ms
+  O(n log n): Result = 249246, Runtime = 121.18 ms
+        O(n): Result = 249246, Runtime = 114.81 ms
 
 --- N = 200000 ---
       O(n^3): TLE (60000 ms)
-      O(n^2): Result = 561259, Runtime = 15544.76 ms
-  O(n log n): Result = 561259, Runtime = 149.86 ms
-        O(n): Result = 561259, Runtime = 183.44 ms
+      O(n^2): Result = 561259, Runtime = 11948.62 ms
+  O(n log n): Result = 561259, Runtime = 158.55 ms
+        O(n): Result = 561259, Runtime = 152.74 ms
 
 --- N = 300000 ---
       O(n^3): TLE (60000 ms)
-      O(n^2): Result = 596224, Runtime = 35284.63 ms
-  O(n log n): Result = 596224, Runtime = 218.92 ms
-        O(n): Result = 596224, Runtime = 299.87 ms
+      O(n^2): Result = 596224, Runtime = 27392.67 ms
+  O(n log n): Result = 596224, Runtime = 237.99 ms
+        O(n): Result = 596224, Runtime = 229.99 ms
 
 --- N = 500000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 341805, Runtime = 385.61 ms
-        O(n): Result = 341805, Runtime = 436.49 ms
+  O(n log n): Result = 341805, Runtime = 371.43 ms
+        O(n): Result = 341805, Runtime = 422.43 ms
 
 --- N = 600000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 427027, Runtime = 457.64 ms
-        O(n): Result = 427027, Runtime = 531.74 ms
+  O(n log n): Result = 427027, Runtime = 442.80 ms
+        O(n): Result = 427027, Runtime = 450.13 ms
 
 --- N = 700000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 376672, Runtime = 532.20 ms
-        O(n): Result = 376672, Runtime = 619.90 ms
+  O(n log n): Result = 376672, Runtime = 622.99 ms
+        O(n): Result = 376672, Runtime = 510.62 ms
 
 --- N = 800000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 805195, Runtime = 599.69 ms
-        O(n): Result = 805195, Runtime = 712.53 ms
+  O(n log n): Result = 805195, Runtime = 658.87 ms
+        O(n): Result = 805195, Runtime = 601.33 ms
 
 --- N = 900000 ---
       O(n^3): TLE (60000 ms)
       O(n^2): TLE (60000 ms)
-  O(n log n): Result = 299782, Runtime = 676.54 ms
-        O(n): Result = 299782, Runtime = 872.41 ms
+  O(n log n): Result = 299782, Runtime = 811.61 ms
+        O(n): Result = 299782, Runtime = 670.66 ms
 
 
 === Result Values Comparison ===
