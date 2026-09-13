@@ -1,6 +1,26 @@
-# DSA-analysis
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: none;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
 
-Comparison of maximum subarray sum algorithms with different time complexities: O(n³), O(n²), O(n log n), and O(n).
+<h1 align="center">DSA Analysis Assignment</h1>
+
+---
+**Author**:
+- Nguyễn Minh Thành - ATTT2025.3 - 2552
+- Nguyễn Công Tuấn - ATTT2025.3 - 2552
+- Trần Lâm Nguyên - ATTT2025.2 - 2552
+
+**Subject**: Data Structures and Algorithms (DSA) - IT003
+
+**Class Code**: IT003.R14
+
+---
+
+**Purposes**: Comparison of maximum subarray sum algorithms with different time complexities: O(n³), O(n²), O(n log n), and O(n).
+
+---
 
 ## Features
 
