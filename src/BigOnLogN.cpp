@@ -1,8 +1,7 @@
-#include <vector>
-#include <algorithm>
-#include <climits>
 #include <iostream>
+#include <climits>
 using namespace std;
+
 int maxCrossingSum(int a[], int left, int mid, int right)
 {
     int sum = 0;
@@ -12,9 +11,9 @@ int maxCrossingSum(int a[], int left, int mid, int right)
         sum += a[i];
         if (sum > left_sum)
             left_sum = sum;
-        sum = 0;
     }
     int right_sum = INT_MIN;
+    sum = 0;
     for (int i = mid + 1; i <= right; ++i)
     {
         sum += a[i];
@@ -35,8 +34,13 @@ int maxSubArrayHelp(int a[], int left, int right)
     int max_left = maxSubArrayHelp(a, left, mid);
     int max_right = maxSubArrayHelp(a, mid + 1, right);
     int max_cross = maxCrossingSum(a, left, mid, right);
-    return max({max_left, max_right, max_cross});
+    
+    int max_val = max_left;
+    if (max_right > max_val) max_val = max_right;
+    if (max_cross > max_val) max_val = max_cross;
+    return max_val;
 }
+
 int maxSubArray(int a[], int n)
 {
     return maxSubArrayHelp(a, 0, n - 1);
@@ -46,11 +50,12 @@ int main()
 {
     int n;
     cin >> n;
-    int a[n];
+    int* a = new int[n];
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
     int h = maxSubArray(a, n);
     cout << h << endl;
+    delete[] a;
 }
