@@ -9,7 +9,7 @@ Comparison of maximum subarray sum algorithms with different time complexities: 
 - **O(n log n)** — Divide and conquer approach (`src/BigOnLogN.cpp`)
 - **O(n)** — Kadane's algorithm (`src/On-kadane.cpp`)
 - **Test generator** — Creates input files of varying sizes (100 to 10,000,000 elements) in `testcase/input/`
-- **Test runner** — Python script to run all algorithms on all test cases with 60s timeout
+- **Test runner** — Python script to run all algorithms on all test cases with 60s timeout, detects Stack Overflow and TLE
 
 ## Installation
 
@@ -23,7 +23,7 @@ cd DSA-analysis
 
 ## Quick Start
 
-Compile all algorithms:
+Compile all algorithms (outputs to `exe/` folder):
 
 ```bash
 g++ src/max_subsequence_On3.cpp -o exe/on3.exe -O2
@@ -74,20 +74,24 @@ Results are saved in `testcase/output/<BigO>/` with format:
 Runtime: <ms>
 ```
 
-Timeout is 60 seconds. TLE cases show:
-```
-Time Limit Exceeded (TLE)
-Runtime: 60000.00 ms
-```
+Timeout is 60 seconds. Special cases:
+- **TLE**: `Time Limit Exceeded (TLE)` + `Runtime: 60000.00 ms`
+- **Stack Overflow**: `Stack Overflow` + runtime when process crashes
 
 ## Algorithm Complexity Comparison
 
 | Algorithm | Time Complexity | Space Complexity | Source File | Binary |
 |-----------|----------------|------------------|-------------|--------|
-| Brute Force (3 loops) | O(n³) | O(1) | `max_subsequence_On3.cpp` | `on3.exe` |
-| Optimized Brute Force | O(n²) | O(1) | `BigO2.cpp` | `on2.exe` |
-| Divide & Conquer | O(n log n) | O(log n) | `BigOnLogN.cpp` | `onlogn.exe` |
-| Kadane's Algorithm | O(n) | O(1) | `On-kadane.cpp` | `kadane.exe` |
+| Brute Force (3 loops) | O(n³) | O(1) | `max_subsequence_On3.cpp` | `exe/on3.exe` |
+| Optimized Brute Force | O(n²) | O(1) | `BigO2.cpp` | `exe/on2.exe` |
+| Divide & Conquer | O(n log n) | O(log n) | `BigOnLogN.cpp` | `exe/onlogn.exe` |
+| Kadane's Algorithm | O(n) | O(1) | `On-kadane.cpp` | `exe/kadane.exe` |
+
+## Implementation Notes
+
+- All algorithms use **dynamic allocation** (`new int[n]`) instead of VLAs to avoid stack overflow on large inputs (1M+ elements)
+- Test runner detects non-zero exit codes and empty output as **Stack Overflow**
+- Test binaries are compiled to and run from `exe/` folder
 
 ## Testing
 
@@ -107,6 +111,17 @@ Test with all-negative array:
 echo "3 -5 -2 -3" | exe/kadane.exe
 # Output: -2
 ```
+
+## Test Results Summary (60s timeout)
+
+| Input Size | O(n³) | O(n²) | O(n log n) | O(n) |
+|------------|-------|-------|------------|------|
+| 100 | ✓ | ✓ | ✓ | ✓ |
+| 1,000 | ✓ | ✓ | ✓ | ✓ |
+| 10,000 | TLE | ✓ | ✓ | ✓ |
+| 100,000 | TLE | ✓ | ✓ | ✓ |
+| 1,000,000 | TLE | TLE | ✓ | ✓ |
+| 10,000,000 | TLE | TLE | TLE | ✓ |
 
 ## Project Structure
 
