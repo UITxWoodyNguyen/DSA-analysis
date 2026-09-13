@@ -80,7 +80,7 @@ Timeout is 60 seconds. Special cases:
 
 ## Runtime Measurement in C++
 
-All algorithms use `<chrono>` library for high-resolution timing:
+The benchmark implementation in `maxSubArr.cpp` uses `<chrono>` for high-resolution timing:
 
 ```cpp
 #include <chrono>
