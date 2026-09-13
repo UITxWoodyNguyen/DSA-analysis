@@ -9,7 +9,7 @@ Comparison of maximum subarray sum algorithms with different time complexities: 
 - **O(n log n)** — Divide and conquer approach (`src/BigOnLogN.cpp`)
 - **O(n)** — Kadane's algorithm (`src/On-kadane.cpp`)
 - **Test generator** — Creates input files of varying sizes (100 to 10,000,000 elements) in `testcase/input/`
-- **Test runner** — Python script to run all algorithms on all test cases with 60s timeout
+- **Test runner** — Python script to run all algorithms on all test cases with 60s timeout, detects Stack Overflow and TLE
 
 ## Installation
 
@@ -77,7 +77,6 @@ Runtime: <ms>
 Timeout is 60 seconds. Special cases:
 - **TLE**: `Time Limit Exceeded (TLE)` + `Runtime: 60000.00 ms`
 - **Stack Overflow**: `Stack Overflow` + runtime when process crashes
-
 ## Runtime Measurement in C++
 
 All algorithms use `<chrono>` library for high-resolution timing:
@@ -155,7 +154,6 @@ echo "3 -5 -2 -3" | exe/kadane.exe
 | `maxSubArr.cpp` | Single class with all 4 algorithms + internal runtime measurement |
 | `solution.cpp` | Combined 4 functions, no timing, reads stdin, outputs 4 results |
 | `result-comparing/resultComparing.cpp` | Parses all `.out` files, compares results & runtimes |
-
 ## Test Results Summary (60s timeout)
 
 | Input Size | O(n³) | O(n²) | O(n log n) | O(n) |
