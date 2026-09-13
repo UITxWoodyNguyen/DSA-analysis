@@ -8,9 +8,9 @@
 
 ---
 **Author**:
-- Nguyễn Minh Thành - ATTT2025.3 - 2552
-- Nguyễn Công Tuấn - ATTT2025.3 - 2552
-- Trần Lâm Nguyên - ATTT2025.2 - 2552
+- Nguyễn Minh Thành - ATTT2025.3 - 25521710
+- Nguyễn Công Tuấn - ATTT2025.3 - 25522012
+- Trần Lâm Nguyên - ATTT2025.2 - 25521257
 
 **Subject**: Data Structures and Algorithms (DSA) - IT003
 
