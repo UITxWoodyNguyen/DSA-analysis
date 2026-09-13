@@ -149,12 +149,14 @@ int main() {
         bool first = true;
         long long expected = 0;
         bool all_match = true;
+        int comparable_count = 0;
         
         for (size_t i = 0; i < algos.size(); ++i) {
             string out_file = output_base + "/" + algos[i] + "/test" + size + ".out";
             Result r = parseOutputFile(out_file);
             
             if (r.valid && !r.is_tle && !r.is_stack_overflow) {
+                ++comparable_count;
                 if (first) {
                     expected = r.value;
                     first = false;
@@ -165,8 +167,7 @@ int main() {
         }
         
         fout << "N = " << setw(10) << size << ": ";
-        if (all_match && !first) {
-            fout << "All match: " << expected << "\n";
+        if (all_match && comparable_count >= 2) {
         } else {
             fout << "MISMATCH or missing\n";
             for (size_t i = 0; i < algos.size(); ++i) {
